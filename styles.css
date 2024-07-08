@@ -6,6 +6,12 @@ body {
     background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
     font-family: 'Comic Sans MS', cursive, sans-serif;
     margin: 0;
+    transition: background-color 0.5s;
+}
+
+body.dark-mode {
+    background: linear-gradient(135deg, #2c3e50 0%, #4ca1af 100%);
+    color: white;
 }
 
 .container {
@@ -16,12 +22,21 @@ body {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
     max-width: 500px;
     width: 90%;
+    transition: background-color 0.5s;
+}
+
+body.dark-mode .container {
+    background-color: #333;
 }
 
 h1 {
     margin-bottom: 20px;
     color: #333;
     font-size: 24px;
+}
+
+body.dark-mode h1 {
+    color: white;
 }
 
 .jokes {
@@ -36,8 +51,8 @@ h1 {
     transition: transform 0.3s;
 }
 
-.jokes li:hover {
-    transform: scale(1.05);
+body.dark-mode .jokes li {
+    color: white;
 }
 
 .loading {
@@ -81,4 +96,68 @@ button:disabled {
 button:hover {
     background-color: #0056b3;
     transform: scale(1.05);
+}
+
+.reactions {
+    margin-top: 20px;
+}
+
+.emoji {
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin: 0 5px;
+    transition: transform 0.2s;
+}
+
+.emoji:hover {
+    transform: scale(1.2);
+}
+
+.switch {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.switch input {
+    display: none;
+}
+
+.slider {
+    position: relative;
+    cursor: pointer;
+    background-color: #ccc;
+    border-radius: 34px;
+    width: 60px;
+    height: 34px;
+}
+
+.slider::before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    border-radius: 50%;
+    background-color: white;
+    transition: 0.4s;
+    transform: translateX(4px);
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:checked + .slider::before {
+    transform: translateX(30px);
+}
+
+#copyButton {
+    margin-top: 10px;
+    background-color: #28a745;
+}
+
+#copyButton:hover {
+    background-color: #218838;
 }
