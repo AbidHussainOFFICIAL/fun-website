@@ -1,20 +1,18 @@
-document.getElementById('jokeButton').addEventListener('click', generateJoke);
+document.getElementById('jokeButton').addEventListener('click', generateJokes);
 
-async function generateJoke() {
+async function generateJokes() {
     const jokeButton = document.getElementById('jokeButton');
-    const jokeElement = document.getElementById('joke');
+    const jokesElement = document.getElementById('jokes');
     const loadingElement = document.getElementById('loading');
 
     jokeButton.disabled = true;
-    jokeElement.style.display = 'none';
     loadingElement.style.display = 'block';
 
-    const response = await fetch('https://api.jokes.one/jod');
+    const response = await fetch('https://api.jokes.one/jod?category=animal');
     const data = await response.json();
-    const joke = data.contents.jokes[0].joke.text;
+    const jokes = data.contents.jokes.map(j => j.joke.text);
 
-    jokeElement.innerText = joke;
-    jokeElement.style.display = 'block';
+    jokesElement.innerHTML = jokes.map(joke => `<li>${joke}</li>`).join('');
     loadingElement.style.display = 'none';
     jokeButton.disabled = false;
 }

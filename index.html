@@ -9,8 +9,12 @@
 <body>
     <div class="container">
         <h1>Random Joke Generator</h1>
-        <div id="joke" class="joke">Click the button to generate a joke!</div>
-        <div id="loading" class="loading" style="display: none;">Loading...</div>
+        <ul id="jokes" class="jokes">
+            <li>Click the button to generate a joke!</li>
+        </ul>
+        <div id="loading" class="loading" style="display: none;">
+            <div class="spinner"></div>
+        </div>
         <button id="jokeButton">Get a Joke</button>
     </div>
     <script src="script.js"></script>
