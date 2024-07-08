@@ -25,6 +25,11 @@ h1 {
     color: #333;
 }
 
+.loading {
+    font-size: 18px;
+    color: #007BFF;
+}
+
 button {
     padding: 10px 20px;
     font-size: 16px;
@@ -34,6 +39,11 @@ button {
     background-color: #007BFF;
     color: white;
     transition: background-color 0.3s;
+}
+
+button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
 }
 
 button:hover {
